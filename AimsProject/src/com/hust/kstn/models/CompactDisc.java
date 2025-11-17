@@ -1,18 +1,12 @@
 package com.hust.kstn.models;
 
-public class CompactDisc {
-	private int id;
-	private String title;
-	private String type;
-	private double cost;
+public class CompactDisc extends Disc{
 	private Track[] tracks = new Track[10];
 	 private int trackCount = 0;
 	 private String[] artists;
 	 private String[] directors;
 	 public CompactDisc(String title,double cost, String type,  String[] artists, String[] directors, Track[] tracks) {
-		 this.title = title;
-			this.type = type;
-			this.cost = cost;
+		 super( title, type, cost);
 
 	        this.artists = new String[artists.length];
 	        for (int i = 0; i < artists.length; i++) {
