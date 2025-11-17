@@ -1,0 +1,42 @@
+- Sau khi chạy phương thức swap(s1, s2) thì tên của 2 học sinh vẫn không thay đổi vì: Khi gọi swap(s1, s2), bản sao của s1, s2 lần lượt được chép vào o1, o2. Khi chạy phương thức thì chỉ thay đổi o1, o2 còn s1, s2 giữ nguyên.
+	Từ đó, Java là ngôn ngữ truyền tham trị(được sao chép sang o1, o2).
+- Để phương thức swap hoạt động, ta sẽ swap twngf thuộc tính thay vì swap tham chiếu như sau:
+Sửa lại phương thức swap:
+public static void swap(Student s1, Student s2) {
+	int temp1 = s1.getStudentId();
+	String temp2 = s1.getName();
+	s1.setStudentId(s2.getStudentId());
+	s1.setName(s2.getName());
+	s2.setStudentId(temp1);
+	s2.setName(temp2);
+}
+- Sơ đồ minh họa:
+
+Ban đầu:
+
+    s1 = (1, "A")
+    s2 = (1, "B")
+Gọi swap(s1, s2):
+int temp1 = s1.getStudentId();
+String temp2 = s1.getName();
+
+    s1 =(1, "A")
+    s2 = (2, "B")
+    temp1 = 1		
+    temp2 = "A"
+
+s1.setStudentId(s2.getStudentId());
+s1.setName(s2.getName());
+
+    s1 = (2, "B") (giá trị của s2 ban dau da duoc gan vao s1)
+    s2 = (2, "B")
+temp1 = 1		
+temp2 = "A"
+(temp chua cac thong tin cua s1)
+s2.setStudentId(temp1);
+s2.setName(temp2);
+
+    s1 = (2, "B")
+    s2 = (1, "A")
+temp1 = 1		
+temp2 = "A"
