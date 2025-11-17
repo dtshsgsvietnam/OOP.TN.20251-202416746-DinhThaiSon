@@ -1,6 +1,8 @@
 package com.hust.kstn.models;
 
 public class DigitalVideoDisc {
+	private static int nbDigitalVideoDiscs = 0;
+	private int id;
 	private String title;
 	private String type;
 	private String director;
@@ -21,8 +23,11 @@ public class DigitalVideoDisc {
 	public double getCost() {
 		return cost;
 	}
+	public int getID() {
+		return id;
+	}
 	public DigitalVideoDisc(String title, String type, String director, int length, double cost) {
-
+		this.id = nbDigitalVideoDiscs++;
 		this.title = title;
 		this.type = type;
 		this.director = director;
