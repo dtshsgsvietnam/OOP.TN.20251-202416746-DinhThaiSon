@@ -24,7 +24,7 @@ public class Cart {
     	itemsInCart[qtyOrdered] = disc2;
     	System.out.println("Two discs has been added sucessfully");
     }
-    public void addDVD(DigitalVideoDisc[] discs) {
+    public void addDVD(DigitalVideoDisc ... discs) {
     	int n = discs.length;
     	if(n == 0) {
     		System.out.println("There is nothing to add");
@@ -40,6 +40,7 @@ public class Cart {
     	}
     	System.out.println("The discs has been added sucessfully");
     }
+    
 
     public void removeDVD(DigitalVideoDisc disc) {
         if (qtyOrdered == 0) {
